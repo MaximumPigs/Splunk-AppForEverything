@@ -1,0 +1,127 @@
+
+# Application-level permissions
+
+[]
+access = read : [ * ], write : [ admin, power ]
+
+### EVENT TYPES
+
+[eventtypes]
+export = system
+
+
+### PROPS
+
+[props]
+export = system
+
+
+### TRANSFORMS
+
+[transforms]
+export = system
+
+
+### LOOKUPS
+
+[lookups]
+export = system
+
+
+### VIEWSTATES: even normal users should be able to create shared viewstates
+
+[viewstates]
+access = read : [ * ], write : [ * ]
+export = system
+
+### macros
+
+[app/ui]
+version = 9.2.2
+modtime = 1748286089.136166000
+
+[app/launcher]
+version = 9.2.2
+modtime = 1748286089.140599000
+
+[macros/sysmon_eventcode_1]
+access = read : [ * ], write : [ admin, power ]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983066.640356000
+
+[macros/sysmon_eventcode_2]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983639.720179000
+
+[macros/sysmon_eventcode_3]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983262.184920000
+
+[macros/sysmon_eventcode_6]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983266.872038000
+
+[macros/sysmon_eventcode_7]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983271.188306000
+
+[macros/sysmon_eventcode_8]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983661.961390000
+
+[macros/sysmon_eventcode_11]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983665.361228000
+
+[macros/sysmon_eventcode_12]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983668.940745000
+
+[macros/sysmon_eventcode_13]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983672.973013000
+
+[macros/sysmon_eventcode_14]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983676.049223000
+
+[macros/sysmon_eventcode_15]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983679.153363000
+
+[macros/sysmon_eventcode_22]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748983681.743350000
+
+### Dashboards
+
+[views/measuring_stick]
+access = read : [ * ], write : [ admin, power ]
+export = system
+owner = admin
+version = 9.2.2
+modtime = 1748818273.183261000

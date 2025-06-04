@@ -1,0 +1,584 @@
+
+<dashboard version="2" theme="dark">
+    <label>Measuring Stick</label>
+    <description>A dashboard for measuring search performance</description>
+    <definition><![CDATA[
+{
+	"visualizations": {
+		"viz_gUYo2s5l": {
+			"type": "splunk.table",
+			"dataSources": {
+				"primary": "ds_lispy"
+			},
+			"title": "LISPY",
+			"options": {
+				"backgroundColor": "transparent",
+				"tableFormat": {
+					"rowBackgroundColors": "> table | seriesByIndex(0) | pick(tableRowBackgroundColorsByBackgroundColor)",
+					"headerBackgroundColor": "> backgroundColor | setColorChannel(tableHeaderBackgroundColorConfig)",
+					"rowColors": "> rowBackgroundColors | maxContrast(tableRowColorMaxContrast)",
+					"headerColor": "> headerBackgroundColor | maxContrast(tableRowColorMaxContrast)"
+				},
+				"count": 1,
+				"headerVisibility": "none"
+			},
+			"showProgressBar": false,
+			"showLastUpdated": false
+		},
+		"viz_epKOe4ro": {
+			"type": "splunk.singlevalueradial",
+			"title": "Efficiency",
+			"dataSources": {
+				"primary": "ds_rHR8y12X"
+			},
+			"options": {
+				"trendDisplay": "off",
+				"radialBackgroundColor": "transparent",
+				"unit": "%",
+				"majorColor": "> majorValue | rangeValue(majorColorEditorConfig)",
+				"backgroundColor": "transparent"
+			},
+			"context": {
+				"majorColorEditorConfig": [
+					{
+						"to": 20,
+						"value": "#D41F1F"
+					},
+					{
+						"from": 20,
+						"to": 40,
+						"value": "#D94E17"
+					},
+					{
+						"from": 40,
+						"to": 60,
+						"value": "#CBA700"
+					},
+					{
+						"from": 60,
+						"to": 80,
+						"value": "#669922"
+					},
+					{
+						"from": 80,
+						"value": "#118832"
+					}
+				]
+			}
+		},
+		"viz_O6P9nhFd": {
+			"type": "splunk.rectangle",
+			"options": {
+				"rx": 25
+			}
+		},
+		"viz_YYnHT5cp": {
+			"type": "splunk.rectangle",
+			"options": {
+				"rx": 25
+			}
+		},
+		"viz_OOs3X1Qf": {
+			"type": "splunk.bar",
+			"title": "Result Count",
+			"dataSources": {
+				"primary": "ds_4JEMMku8"
+			},
+			"showProgressBar": false,
+			"showLastUpdated": false,
+			"options": {
+				"backgroundColor": "transparent",
+				"seriesSpacing": 0,
+				"legendDisplay": "off",
+				"xAxisTitleVisibility": "hide",
+				"xAxisMajorTickVisibility": "hide",
+				"showYAxisExtendedRange": false,
+				"yAxisMajorTickVisibility": "hide",
+				"yAxisMinorTickVisibility": "hide",
+				"showYMajorGridLines": false,
+				"yAxisLabelVisibility": "hide",
+				"yAxisTitleVisibility": "hide",
+				"dataValuesDisplay": "all",
+				"seriesColors": [
+					"#294e70",
+					"#009CEB",
+					"#00CDAF",
+					"#DD9900",
+					"#FF677B",
+					"#CB2196",
+					"#813193",
+					"#0051B5",
+					"#008C80",
+					"#99B100",
+					"#FFA476",
+					"#FF6ACE",
+					"#AE8CFF",
+					"#00689D",
+					"#00490A",
+					"#465D00",
+					"#9D6300",
+					"#F6540B",
+					"#FF969E",
+					"#E47BFE"
+				],
+				"overlayFields": [],
+				"stackMode": "stacked"
+			}
+		},
+		"viz_o4ief3pl": {
+			"type": "splunk.rectangle",
+			"options": {
+				"rx": 25
+			}
+		},
+		"viz_L3UgOpsK": {
+			"type": "splunk.table",
+			"dataSources": {
+				"primary": "ds_NzRM4ptq"
+			},
+			"showProgressBar": false,
+			"showLastUpdated": false,
+			"options": {
+				"headerVisibility": "none",
+				"backgroundColor": "transparent",
+				"tableFormat": {
+					"rowBackgroundColors": "> table | seriesByIndex(0) | pick(tableAltRowBackgroundColorsByBackgroundColor)",
+					"headerBackgroundColor": "> backgroundColor | setColorChannel(tableHeaderBackgroundColorConfig)",
+					"rowColors": "> rowBackgroundColors | maxContrast(tableRowColorMaxContrast)",
+					"headerColor": "> headerBackgroundColor | maxContrast(tableRowColorMaxContrast)"
+				}
+			},
+			"title": "Search Durations"
+		},
+		"viz_zPkF5r4P": {
+			"type": "splunk.rectangle",
+			"options": {
+				"rx": 25
+			}
+		},
+		"viz_cBt9ZKNx": {
+			"type": "splunk.singlevalue",
+			"title": "",
+			"dataSources": {
+				"primary": "ds_done"
+			},
+			"options": {
+				"refresh": "1s",
+				"majorColor": "> majorValue | matchValue(majorColorEditorConfig)",
+				"trendColor": "#f8be34",
+				"backgroundColor": "transparent"
+			},
+			"context": {
+				"majorColorEditorConfig": [
+					{
+						"match": "Complete",
+						"value": "#2f8811"
+					},
+					{
+						"match": "Running",
+						"value": "#f8be34"
+					},
+					{
+						"match": "Not Running",
+						"value": "#d41f1f"
+					}
+				]
+			}
+		},
+		"viz_vFC6fKBM": {
+			"type": "splunk.rectangle",
+			"options": {
+				"rx": 25
+			}
+		},
+		"viz_phs19J2l": {
+			"type": "splunk.table",
+			"options": {
+				"headerVisibility": "none",
+				"count": 1,
+				"showInternalFields": false,
+				"tableFormat": {
+					"rowBackgroundColors": "> table | seriesByIndex(0) | pick(tableRowBackgroundColorsByBackgroundColor)",
+					"headerBackgroundColor": "> backgroundColor | setColorChannel(tableHeaderBackgroundColorConfig)",
+					"rowColors": "> rowBackgroundColors | maxContrast(tableRowColorMaxContrast)",
+					"headerColor": "> headerBackgroundColor | maxContrast(tableRowColorMaxContrast)"
+				},
+				"backgroundColor": "transparent"
+			},
+			"dataSources": {
+				"primary": "ds_0YOHCPhq"
+			},
+			"hideWhenNoData": true,
+			"showProgressBar": false,
+			"showLastUpdated": false
+		},
+		"viz_6n9leKMq": {
+			"type": "splunk.table",
+			"options": {
+				"headerVisibility": "none",
+				"count": 1,
+				"showInternalFields": false,
+				"tableFormat": {
+					"rowBackgroundColors": "> table | seriesByIndex(0) | pick(tableRowBackgroundColorsByBackgroundColor)",
+					"headerBackgroundColor": "> backgroundColor | setColorChannel(tableHeaderBackgroundColorConfig)",
+					"rowColors": "> rowBackgroundColors | maxContrast(tableRowColorMaxContrast)",
+					"headerColor": "> headerBackgroundColor | maxContrast(tableRowColorMaxContrast)"
+				},
+				"backgroundColor": "transparent"
+			},
+			"dataSources": {
+				"primary": "ds_CxwmOla8"
+			},
+			"hideWhenNoData": true,
+			"showProgressBar": false,
+			"showLastUpdated": false
+		},
+		"viz_AXwHFchK": {
+			"type": "abslayout.line"
+		},
+		"viz_jzE7vwcl": {
+			"type": "splunk.rectangle",
+			"options": {
+				"rx": 25
+			}
+		},
+		"viz_E4IZlVNz": {
+			"type": "splunk.singlevalue",
+			"title": "Normalised query",
+			"dataSources": {
+				"primary": "ds_transformer"
+			},
+			"options": {
+				"backgroundColor": "transparent"
+			}
+		},
+		"viz_CFEYOmye": {
+			"type": "abslayout.line"
+		}
+	},
+	"dataSources": {
+		"ds_base": {
+			"type": "ds.search",
+			"options": {
+				"query": "$query_transformer:result.detransformed_search$",
+				"queryParameters": {
+					"earliest": "$global_time.earliest$",
+					"latest": "$global_time.latest$"
+				},
+				"enableSmartSources": true
+			},
+			"name": "base_search"
+		},
+		"ds_searchjob": {
+			"type": "ds.search",
+			"options": {
+				"query": "| rest /services/search/jobs/$base_search:job.sid$/search.log"
+			},
+			"name": "search_job_log"
+		},
+		"ds_lispy": {
+			"type": "ds.chain",
+			"options": {
+				"extend": "ds_searchjob",
+				"query": "| rex max_match=0 field=value \"base lispy:(?<lispy>.*)\"\n| eval lispy=mvindex(lispy, 0)\n| fields lispy"
+			},
+			"name": "lispy"
+		},
+		"ds_rHR8y12X": {
+			"type": "ds.chain",
+			"options": {
+				"extend": "ds_kX9rzsvt",
+				"query": "|  eval perf = (eventCount/scanCount)*100\n|  fields perf"
+			},
+			"name": "performance"
+		},
+		"ds_4JEMMku8": {
+			"type": "ds.chain",
+			"options": {
+				"extend": "ds_kX9rzsvt",
+				"query": "| fields scanCount, eventCount\n| rename scanCount as Scanned, eventCount as Returned\n| transpose",
+				"enableSmartSources": true
+			},
+			"name": "result_count"
+		},
+		"ds_kX9rzsvt": {
+			"type": "ds.search",
+			"options": {
+				"query": "| rest /services/search/jobs/$base_search:job.sid$"
+			},
+			"name": "search_job"
+		},
+		"ds_NzRM4ptq": {
+			"type": "ds.chain",
+			"options": {
+				"extend": "ds_kX9rzsvt",
+				"query": "| eval \"-- Pre-Field Extraction --\" = \"\", \"-- Field Extraction --\" = \"\", \"-- Post-Field Extraction --\" = \"\"\n| fields performance.command.search.duration_secs,\n         \"-- Pre-Field Extraction --\",\n         performance.command.search.index.duration_secs,\n         performance.command.search.rawdata.duration_secs,\n         \"-- Field Extraction --\"\n         performance.command.search.kv.duration_secs,\n         performance.command.search.calcfields.duration_secs,\n         performance.command.search.lookups.duration_secs,\n         \"-- Post-Field Extraction --\"\n          performance.command.search.filter.duration_secs\n| rename performance.command.search.duration_secs as duration_secs\n| foreach mode=multifield *.duration_secs [ eval <<FIELD>> = round('<<FIELD>>'/'duration_secs'*100, 2). \"%\"]\n| eval duration_secs = duration_secs. \"s\"\n| rename performance.command.search.* as *\n| rename *.duration_secs as *\n| rename duration_secs as \"Total Search Time:\",\n         index as \"Read TSIDX:\",\n         rawdata as \"Read Raw:\",\n         kv as \"Extract Fields:\",\n         calcfields as \"Calculate Fields:\",\n         lookups as \"Lookup Fields:\",\n         filter as \"Filter Events:\"\n| transpose",
+				"enableSmartSources": true
+			},
+			"name": "search_durations"
+		},
+		"ds_done": {
+			"type": "ds.search",
+			"options": {
+				"query": "| makeresults\n| eval done=\"$base_search:job.done$\"\n| eval done =case(match(done, \"true\"), \"Complete\", match(done, \"false\"), \"Running\", true(), \"Not Running\")\n| fields done"
+			},
+			"name": "done_check"
+		},
+		"ds_fQjXBdXI": {
+			"type": "ds.chain",
+			"options": {
+				"extend": "ds_kX9rzsvt",
+				"query": "| fields performance.command.search.duration_secs, eventCount, scanCount, runDuration\n| rename performance.command.search.duration_secs as searchDuration\n| eval wasted = scanCount - eventCount\n| eval perc = (eventCount/scanCount)*100\n| eval flavour = case(perc < 21, \"My disappointment is immeasurable and my day is ruined.\", perc < 41, \"Your search is bad, and you should feel bad.\", perc < 61, \"Git gud!\", perc = 69, \"Nice!\", perc < 81, \"\\\"Good enough, I guess.\\\" - Mediocrates\", perc < 100, \"I'll allow it.\", perc = 100, \"G..G..G..G..Godlike!!\", true(), \"\" )\n| eval text = \"Your search consumed \". round(searchDuration,2). \" seconds of compute time and returned in \". round(runDuration,2). \" seconds of human time. It needlessly parsed \". wasted. \" events.\""
+			},
+			"name": "plain_text"
+		},
+		"ds_0YOHCPhq": {
+			"type": "ds.chain",
+			"options": {
+				"extend": "ds_fQjXBdXI",
+				"query": "| table text"
+			},
+			"name": "text_field"
+		},
+		"ds_CxwmOla8": {
+			"type": "ds.chain",
+			"options": {
+				"extend": "ds_fQjXBdXI",
+				"query": "| fields flavour"
+			},
+			"name": "flavour_field"
+		},
+		"ds_transformer": {
+			"type": "ds.search",
+			"options": {
+				"query": "|  makeresults \n|  eval detransformed_search = $text_search|s$ \n|  rex mode=sed field=detransformed_search \"s/([^\\|]+).*/\\1 | fields */g\"",
+				"enableSmartSources": true
+			},
+			"name": "query_transformer"
+		}
+	},
+	"defaults": {
+		"dataSources": {
+			"ds.search": {
+				"options": {
+					"queryParameters": {
+						"latest": "$global_time.latest$",
+						"earliest": "$global_time.earliest$"
+					}
+				}
+			}
+		}
+	},
+	"inputs": {
+		"input_global_trp": {
+			"type": "input.timerange",
+			"options": {
+				"token": "global_time",
+				"defaultValue": "-24h@h,now"
+			},
+			"title": "Global Time Range"
+		},
+		"input_search": {
+			"options": {
+				"defaultValue": "| noop",
+				"token": "text_search"
+			},
+			"title": "Enter search here",
+			"type": "input.text"
+		}
+	},
+	"layout": {
+		"type": "absolute",
+		"options": {
+			"width": 1000,
+			"height": 750,
+			"submitButton": true,
+			"submitOnDashboardLoad": true
+		},
+		"structure": [
+			{
+				"item": "viz_AXwHFchK",
+				"type": "line",
+				"position": {
+					"from": {
+						"x": 896,
+						"y": 572
+					},
+					"to": {
+						"x": 895,
+						"y": 250
+					}
+				}
+			},
+			{
+				"item": "viz_o4ief3pl",
+				"type": "block",
+				"position": {
+					"x": 700,
+					"y": 200,
+					"w": 290,
+					"h": 390
+				}
+			},
+			{
+				"item": "viz_YYnHT5cp",
+				"type": "block",
+				"position": {
+					"x": 10,
+					"y": 600,
+					"w": 980,
+					"h": 140
+				}
+			},
+			{
+				"item": "viz_O6P9nhFd",
+				"type": "block",
+				"position": {
+					"x": 10,
+					"y": 130,
+					"w": 680,
+					"h": 240
+				}
+			},
+			{
+				"item": "viz_gUYo2s5l",
+				"type": "block",
+				"position": {
+					"x": 20,
+					"y": 610,
+					"w": 960,
+					"h": 110
+				}
+			},
+			{
+				"item": "viz_epKOe4ro",
+				"type": "block",
+				"position": {
+					"x": 20,
+					"y": 140,
+					"w": 230,
+					"h": 240
+				}
+			},
+			{
+				"item": "viz_OOs3X1Qf",
+				"type": "block",
+				"position": {
+					"x": 240,
+					"y": 140,
+					"w": 440,
+					"h": 240
+				}
+			},
+			{
+				"item": "viz_L3UgOpsK",
+				"type": "block",
+				"position": {
+					"x": 710,
+					"y": 210,
+					"w": 370,
+					"h": 380
+				}
+			},
+			{
+				"item": "viz_zPkF5r4P",
+				"type": "block",
+				"position": {
+					"x": 700,
+					"y": 130,
+					"w": 290,
+					"h": 60
+				}
+			},
+			{
+				"item": "viz_cBt9ZKNx",
+				"type": "block",
+				"position": {
+					"x": 720,
+					"y": 140,
+					"w": 250,
+					"h": 40
+				}
+			},
+			{
+				"item": "viz_vFC6fKBM",
+				"type": "block",
+				"position": {
+					"x": 10,
+					"y": 380,
+					"w": 680,
+					"h": 210
+				}
+			},
+			{
+				"item": "viz_phs19J2l",
+				"type": "block",
+				"position": {
+					"x": 20,
+					"y": 390,
+					"w": 660,
+					"h": 90
+				}
+			},
+			{
+				"item": "viz_6n9leKMq",
+				"type": "block",
+				"position": {
+					"x": 20,
+					"y": 490,
+					"w": 660,
+					"h": 90
+				}
+			},
+			{
+				"item": "viz_jzE7vwcl",
+				"type": "block",
+				"position": {
+					"x": 10,
+					"y": 10,
+					"w": 980,
+					"h": 110
+				}
+			},
+			{
+				"item": "viz_E4IZlVNz",
+				"type": "block",
+				"position": {
+					"x": 20,
+					"y": 20,
+					"w": 960,
+					"h": 90
+				}
+			},
+			{
+				"item": "viz_CFEYOmye",
+				"type": "line",
+				"position": {
+					"from": {
+						"x": 725,
+						"y": 284
+					},
+					"to": {
+						"x": 965,
+						"y": 284
+					}
+				}
+			}
+		],
+		"globalInputs": [
+			"input_global_trp",
+			"input_search"
+		]
+	},
+	"description": "A dashboard for measuring search performance",
+	"title": "Measuring Stick"
+}
+    ]]></definition>
+    <meta type="hiddenElements"><![CDATA[
+{
+	"hideEdit": false,
+	"hideOpenInSearch": false,
+	"hideExport": false
+}
+    ]]></meta>
+</dashboard>
